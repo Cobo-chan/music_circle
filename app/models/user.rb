@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :image
-  validates :nickname, presence: true
+  with_options presence: true do
+    validates :nickname, :image
+  end
 end
